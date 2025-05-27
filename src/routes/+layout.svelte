@@ -15,7 +15,9 @@
   });
 </script>
 
-<div class="layout bg-background flex h-screen w-screen">
+<div
+  class="layout bg-background text-foreground border-border font-noto-sans-sc flex h-screen w-screen"
+>
   <Sidebar />
   <main class="main flex flex-1 flex-col">
     <Navbar />

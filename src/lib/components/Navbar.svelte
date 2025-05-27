@@ -1,28 +1,28 @@
 <script>
-  import { toggleTheme, getTheme } from '$lib/stores/theme.svelte';
   import Icon from 'svelte-awesome';
-  import moon from 'svelte-awesome/icons/listAlt';
-  import sun from 'svelte-awesome/icons/listAlt';
+  import bullhorn from 'svelte-awesome/icons/bullhorn';
+  import arrowLeft from 'svelte-awesome/icons/arrowLeft';
+  import search from 'svelte-awesome/icons/search';
 </script>
 
 <nav
-  class="navbar bg-color-sidebar-bg border-color-sidebar-border flex h-10 items-center justify-between border-b px-4"
+  class="navbar bg-background text-foreground flex flex-col items-center justify-between gap-6 px-4 pb-4"
 >
-  <div class="flex-1">
-    <h1 class="text-lg font-bold">Dashboard</h1>
-  </div>
+  <!-- bar -->
+  <div class="flex w-full pt-4">
+    <div class="text-icon-secondary flex flex-1 items-center gap-6">
+      <button class="flex items-center" title="back">
+        <Icon data={arrowLeft} />
+      </button>
+      <div class="flex max-w-80 flex-1 items-center gap-2 rounded-md border-1 px-2 py-1">
+        <Icon class="text-subtle" data={search} />
+        <input class="text-foreground focus:outline-none" placeholder="Search a thing..." />
+      </div>
+    </div>
 
-  <div class="flex items-center gap-3">
-    <button
-      on:click={toggleTheme}
-      class="hover:bg-color-hover rounded-full p-2 transition-colors"
-      title={getTheme() === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-    >
-      <Icon data={getTheme() === 'light' ? moon : sun} />
-    </button>
-
-    <div class="bg-color-primary flex h-8 w-8 items-center justify-center rounded-full text-white">
-      US
+    <div class="flex items-center gap-3">
+      <Icon data={bullhorn} class="text-foreground" />
+      <div class="bg-background flex">User A</div>
     </div>
   </div>
 </nav>

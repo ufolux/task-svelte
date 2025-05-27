@@ -5,41 +5,82 @@
   /* Define regular CSS variables for theme switching */
   :root {
     /* Light theme (default) */
-    --color-primary-value: #4F46E5;
-    --color-background-value: #FFFFFF;
-    --color-text-value: #333333;
-    --color-text-secondary-value: #4B5563;
-    --color-text-tertiary-value: #6B7280;
-    --color-sidebar-bg-value: #FFFFFF;
-    --color-sidebar-border-value: #E5E7EB;
-    --color-hover-value: #F3F4F6;
-    --color-active-value: #DBEAFE;
+    --primary-value: #4F46E5;
+    --secondary-value: #6366F1;
+    
+    --bg-value: #FFFFFF;
+    --surface-value: #F9FAFB;
+    --card-value: #FFFFFF;
+    
+    --text-value: #111827;
+    --text-muted-value: #6B7280;
+    --text-subtle-value: #9CA3AF;
+    
+    --border-value: #E5E7EB;
+    --border-value-light: #D1D5DB;
+    --divider-value: #F3F4F6;
+    
+    --hover-value: #F3F4F6;
+    --active-value: #DBEAFE;
+    --focus-value: #3B82F6;
   }
   
   /* Dark theme */
   [data-theme="dark"] {
-    --color-primary-value: #6366F1;
-    --color-background-value: #111827;
-    --color-text-value: #F9FAFB;
-    --color-text-secondary-value: #D1D5DB;
-    --color-text-tertiary-value: #9CA3AF;
-    --color-sidebar-bg-value: #1F2937;
-    --color-sidebar-border-value: #374151;
-    --color-hover-value: #374151;
-    --color-active-value: #312E81;
+    --primary-value: #6366F1;
+    --secondary-value: #8B5CF6;
+    
+    --bg-value: #111827;
+    --surface-value: #1F2937;
+    --card-value: #374151;
+    
+    --text-value: #F9FAFB;
+    --text-muted-value: #D1D5DB;
+    --text-subtle-value: #9CA3AF;
+    
+    --border-value: #374151;
+    --border-value-light: #4B5563;
+    --divider-value: #4B5563;
+    
+    --hover-value: #374151;
+    --active-value: #312E81;
+    --focus-value: #60A5FA;
   }
 }
 
 /* Define Tailwind 4.1 theme variables */
 @theme {
-  /* Theme colors that will generate utility classes */
-  --color-primary: var(--color-primary-value);
-  --color-background: var(--color-background-value);
-  --color-text: var(--color-text-value);
-  --color-text-secondary: var(--color-text-secondary-value);
-  --color-text-tertiary: var(--color-text-tertiary-value);
-  --color-sidebar-bg: var(--color-sidebar-bg-value);
-  --color-sidebar-border: var(--color-sidebar-border-value);
-  --color-hover: var(--color-hover-value);
-  --color-active: var(--color-active-value);
+  /* 基础色彩 */
+  --color-primary: var(--primary-value);
+  --color-secondary: var(--secondary-value);
+  
+  /* 背景色系 */
+  --color-background: var(--bg-value);
+  --color-surface: var(--surface-value);
+  --color-card: var(--card-value);
+  
+  /* 文本色系 */
+  --color-foreground: var(--text-value);
+  --color-muted: var(--text-muted-value);
+  --color-subtle: var(--text-subtle-value);
+  --color-icon-primary: var(--text-value);
+  --color-icon-secondary: var(--text-subtle-value);
+  
+  /* 边框和分割线 */
+  --color-border: var(--border-value);
+  --color-border-light: var(--border-value-light);
+  --color-divider: var(--divider-value);
+  
+  /* 交互状态 */
+  --color-hover: var(--hover-value);
+  --color-active: var(--active-value);
+  --color-focus: var(--focus-value);
+  
+  /* 语义化颜色 */
+  --color-success: var(--success-value);
+  --color-warning: var(--warning-value);
+  --color-error: var(--error-value);
+  --color-info: var(--info-value);
+
+  --font-noto-sans-sc: 'Noto Sans SC', sans-serif;
 }

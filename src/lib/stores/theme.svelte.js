@@ -1,33 +1,5 @@
 import { browser } from '$app/environment';
 
-// Define available themes
-export const themes = {
-  light: {
-    name: 'Light',
-    colors: {
-      primary: '#4F46E5',
-      background: '#FFFFFF',
-      text: '#333333',
-      sidebarBg: '#FFFFFF',
-      sidebarBorder: '#E5E7EB',
-      hover: '#F3F4F6',
-      active: '#DBEAFE',
-    },
-  },
-  dark: {
-    name: 'Dark',
-    colors: {
-      primary: '#6366F1',
-      background: '#111827',
-      text: '#F9FAFB',
-      sidebarBg: '#1F2937',
-      sidebarBorder: '#374151',
-      hover: '#374151',
-      active: '#312E81',
-    },
-  },
-};
-
 /**
  * Function to get the initial theme based on localStorage or system preference
  * @returns {'light' | 'dark'}
@@ -41,7 +13,7 @@ function getInitialTheme() {
     localStorage.removeItem('theme');
     return 'light';
   }
-  if (savedTheme && themes[savedTheme]) return savedTheme;
+  if (savedTheme) return savedTheme;
 
   // Check system preference
   const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -78,7 +50,7 @@ export function toggleTheme() {
  * @param {'light' | 'dark'} newTheme
  */
 export function setTheme(newTheme) {
-  if (themes[newTheme]) {
+  if ((newTheme === 'light' || newTheme === 'dark') && newTheme !== themeState) {
     themeState = newTheme;
     saveTheme();
   }
