@@ -1,22 +1,21 @@
-<script>
+<script lang="ts">
   import { Icon } from 'svelte-awesome';
   import paperclip from 'svelte-awesome/icons/paperclip';
   import commenting from 'svelte-awesome/icons/commentingO';
   import ellipsisH from 'svelte-awesome/icons/ellipsisH';
   import flag from 'svelte-awesome/icons/flag';
-  import TaskTag from './TaskTag.svelte';
+  import TaskTag, { type Tag } from './TaskTag.svelte';
+  import Avatar from './Avatar.svelte';
 
-  /**
-   * @typedef {Object} CardProps
-   * @property {Tag[]} tags - Array of tags associated with the task
-   * @property {string} title - Title of the task
-   * @property {string} desc - Description of the task
-   * @property {string} dueDate - Due date of the task in ISO format
-   * @property {Avatar[]} avatars - Array of avatars associated with the task
-   * @property {number} attachedNum - Number of attachments
-   * @property {number} commentNum - Number of comments on the task
-   */
-
+  interface CardProps {
+    tags: Tag[];
+    title: string;
+    desc: string;
+    dueDate: string; // ISO date string
+    avatars: Avatar[];
+    attachedNum: number;
+    commentNum: number;
+  }
   /**
    * @type CardProps
    */
@@ -27,7 +26,9 @@
   });
 </script>
 
-<div class="border-border-light flex flex-1 flex-col rounded-lg border-1 p-4 shadow-md">
+<div
+  class="border-border-light bg-background-light flex flex-col rounded-lg border-1 p-4 shadow-md"
+>
   <div class="mb-2 flex items-center justify-between">
     <div class="flex gap-1">
       <!-- tag -->
@@ -42,29 +43,25 @@
 
   <h3 data-variant="cardTitle">{title}</h3>
   <p data-variant="caption">{desc}</p>
-  <p data-variant="caption">
+  <p data-variant="caption" class="mt-2">
     <Icon data={flag} />
     {dueDate}
   </p>
-  <div class="flex">
+  <div class="mt-2 flex items-center justify-between">
     <div class="flex items-center">
       {#each avatars as avatar, index (avatar.id)}
-        <img
-          src={avatar.src}
-          alt="Avatar"
-          class={['h-10', 'w-10', 'rounded-full', index === avatars.length - 1 ? null : '-mr-2']}
-        />
+        <Avatar {avatar} isLast={index === avatars.length - 1} />
       {/each}
     </div>
-    <div>
-      <span>
+    <div class="text-icon-secondary flex items-center gap-2 text-sm">
+      <button class="items-center gap-1">
         <Icon data={paperclip} />
         {attachedNum}
-      </span>
-      <span>
+      </button>
+      <button class="items-center gap-1">
         <Icon data={commenting} />
         {commentNum}
-      </span>
+      </button>
     </div>
   </div>
 </div>

@@ -5,46 +5,60 @@
   /* Define regular CSS variables for theme switching */
   :root {
     /* Light theme (default) */
-    --primary-value: #4F46E5;
-    --secondary-value: #6366F1;
-    
-    --bg-value: #FFFFFF;
-    --surface-value: #F9FAFB;
-    --card-value: #FFFFFF;
-    
+    --primary-value: #4f46e5;
+    --secondary-value: #6366f1;
+
+    --bg-value: #eeeeee4e;
+    --bg-value-light: #ffffff;
+    --surface-value: #f9fafb;
+    --card-value: #ffffff;
+
     --text-value: #111827;
-    --text-muted-value: #6B7280;
-    --text-subtle-value: #9CA3AF;
-    
-    --border-value: #D1D5DB;
-    --border-value-light: #E5E7EB;
-    --divider-value: #F3F4F6;
-    
-    --hover-value: #F3F4F6;
-    --active-value: #DBEAFE;
-    --focus-value: #3B82F6;
+    --text-muted-value: #6b7280;
+    --text-subtle-value: #9ca3af;
+
+    --border-value: #d1d5db;
+    --border-value-light: #e5e7eb;
+    --divider-value: #f3f4f6;
+
+    --hover-value: #f3f4f6;
+    --active-value: #dbeafe;
+    --focus-value: #3b82f6;
   }
-  
+
   /* Dark theme */
-  [data-theme="dark"] {
-    --primary-value: #6366F1;
-    --secondary-value: #8B5CF6;
-    
+  [data-theme='dark'] {
+    --primary-value: #6366f1;
+    --secondary-value: #8b5cf6;
+
     --bg-value: #111827;
-    --surface-value: #1F2937;
+    --bg-value-light: #1f2937c2;
+    --surface-value: #1f2937;
     --card-value: #374151;
-    
-    --text-value: #F9FAFB;
-    --text-muted-value: #D1D5DB;
-    --text-subtle-value: #9CA3AF;
-    
-    --border-value: #4B5563;
+
+    --text-value: #f9fafb;
+    --text-muted-value: #d1d5db;
+    --text-subtle-value: #9ca3af;
+
+    --border-value: #4b5563;
     --border-value-light: #374151;
-    --divider-value: #4B5563;
-    
+    --divider-value: #4b5563;
+
     --hover-value: #374151;
-    --active-value: #312E81;
-    --focus-value: #60A5FA;
+    --active-value: #312e81;
+    --focus-value: #60a5fa;
+  }
+
+  /* 为常用容器元素默认应用flex布局 */
+  div,
+  section,
+  header,
+  footer,
+  nav,
+  main,
+  aside,
+  button {
+    @apply flex;
   }
 }
 
@@ -53,29 +67,30 @@
   /* 基础色彩 */
   --color-primary: var(--primary-value);
   --color-secondary: var(--secondary-value);
-  
+
   /* 背景色系 */
   --color-background: var(--bg-value);
+  --color-background-light: var(--bg-value-light);
   --color-surface: var(--surface-value);
   --color-card: var(--card-value);
-  
+
   /* 文本色系 */
   --color-foreground: var(--text-value);
   --color-muted: var(--text-muted-value);
   --color-subtle: var(--text-subtle-value);
   --color-icon-primary: var(--text-value);
   --color-icon-secondary: var(--text-subtle-value);
-  
+
   /* 边框和分割线 */
   --color-border: var(--border-value);
   --color-border-light: var(--border-value-light);
   --color-divider: var(--divider-value);
-  
+
   /* 交互状态 */
   --color-hover: var(--hover-value);
   --color-active: var(--active-value);
   --color-focus: var(--focus-value);
-  
+
   /* 语义化颜色 */
   --color-success: var(--success-value);
   --color-warning: var(--warning-value);
@@ -85,21 +100,19 @@
   --font-rubik-sc: 'Rubik', sans-serif;
 }
 
-
 @layer components {
   body {
     font-family: var(--font-rubik-sc);
   }
-  h1[data-variant="pageTitle"] {
-    @apply text-3xl font-bold;
+  h1[data-variant='pageTitle'] {
+    @apply text-3xl font-semibold;
     color: var(--color-foreground);
   }
-  h3[data-variant="cardTitle"] {
-    @apply text-lg font-bold;
+  h3[data-variant='cardTitle'] {
+    @apply text-lg font-medium;
     color: var(--color-foreground);
   }
-  p[data-variant="caption"] {
-    @apply text-sm text-muted;
-    color: var(--color-muted);
+  p[data-variant='caption'] {
+    @apply text-subtle text-sm;
   }
 }

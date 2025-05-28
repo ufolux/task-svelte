@@ -5,9 +5,7 @@
   import search from 'svelte-awesome/icons/search';
 </script>
 
-<nav
-  class="navbar bg-background text-foreground flex flex-col items-center justify-between gap-6 px-4 pb-4"
->
+<nav class="navbar text-foreground flex flex-col items-center justify-between gap-6 px-4 pb-4">
   <!-- bar -->
   <div class="flex w-full pt-4">
     <div class="text-icon-secondary flex flex-1 items-center gap-6">
@@ -22,7 +20,7 @@
 
     <div class="flex items-center gap-3">
       <Icon data={bullhorn} class="text-foreground" />
-      <div class="bg-background flex">User A</div>
+      <div class="flex">User A</div>
     </div>
   </div>
 </nav>

@@ -16,7 +16,7 @@
 </script>
 
 <div
-  class="layout bg-background text-foreground border-border font-noto-sans-sc flex h-screen w-screen"
+  class="layout bg-background-light text-foreground border-border font-noto-sans-sc flex h-screen w-screen"
 >
   <Sidebar />
   <main class="main flex flex-1 flex-col">
