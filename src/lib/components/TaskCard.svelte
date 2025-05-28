@@ -2,35 +2,59 @@
   import { Icon } from 'svelte-awesome';
   import paperclip from 'svelte-awesome/icons/paperclip';
   import commenting from 'svelte-awesome/icons/commentingO';
+  import ellipsisH from 'svelte-awesome/icons/ellipsisH';
+  import flag from 'svelte-awesome/icons/flag';
+  import TaskTag from './TaskTag.svelte';
 
   /**
-   * @type {{ tags: string[], title: string, desc: string, dueDate: string, attachedNum: number, commentNum: number }}
+   * @typedef {Object} CardProps
+   * @property {Tag[]} tags - Array of tags associated with the task
+   * @property {string} title - Title of the task
+   * @property {string} desc - Description of the task
+   * @property {string} dueDate - Due date of the task in ISO format
+   * @property {Avatar[]} avatars - Array of avatars associated with the task
+   * @property {number} attachedNum - Number of attachments
+   * @property {number} commentNum - Number of comments on the task
    */
-  let { tags, title, desc, dueDate, attachedNum, commentNum } = $props();
+
+  /**
+   * @type CardProps
+   */
+  let { tags, title, desc, dueDate, avatars, attachedNum, commentNum } = $props();
+  dueDate = new Date(dueDate).toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+  });
 </script>
 
-<div class="flex flex-col">
-  <div class="flex">
-    <!-- tag -->
-    {#each tags as tag}
-      <span>{tag}</span>
-    {/each}
+<div class="border-border-light flex flex-1 flex-col rounded-lg border-1 p-4 shadow-md">
+  <div class="mb-2 flex items-center justify-between">
+    <div class="flex gap-1">
+      <!-- tag -->
+      {#each tags as tag (tag.id)}
+        <TaskTag {tag} />
+      {/each}
+    </div>
+    <button>
+      <Icon data={ellipsisH} class="text-icon-secondary" />
+    </button>
   </div>
-  <h1>{title}</h1>
-  <h2>{desc}</h2>
-  <h3>{dueDate}</h3>
+
+  <h3 data-variant="cardTitle">{title}</h3>
+  <p data-variant="caption">{desc}</p>
+  <p data-variant="caption">
+    <Icon data={flag} />
+    {dueDate}
+  </p>
   <div class="flex">
-    <div>
-      <img
-        src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0093c1a89fdc9bc0ebfb54d6d9db16537db1ea5a_full.jpg"
-        alt="Avatar"
-        class="h-10 w-10 rounded-full"
-      />
-      <img
-        src="https://cdn.cloudflare.steamstatic.com/steamcommunity/public/images/avatars/00/0093c1a89fdc9bc0ebfb54d6d9db16537db1ea5a_full.jpg"
-        alt="Avatar"
-        class="h-10 w-10 rounded-full"
-      />
+    <div class="flex items-center">
+      {#each avatars as avatar, index (avatar.id)}
+        <img
+          src={avatar.src}
+          alt="Avatar"
+          class={['h-10', 'w-10', 'rounded-full', index === avatars.length - 1 ? null : '-mr-2']}
+        />
+      {/each}
     </div>
     <div>
       <span>

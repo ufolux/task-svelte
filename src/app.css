@@ -16,8 +16,8 @@
     --text-muted-value: #6B7280;
     --text-subtle-value: #9CA3AF;
     
-    --border-value: #E5E7EB;
-    --border-value-light: #D1D5DB;
+    --border-value: #D1D5DB;
+    --border-value-light: #E5E7EB;
     --divider-value: #F3F4F6;
     
     --hover-value: #F3F4F6;
@@ -38,8 +38,8 @@
     --text-muted-value: #D1D5DB;
     --text-subtle-value: #9CA3AF;
     
-    --border-value: #374151;
-    --border-value-light: #4B5563;
+    --border-value: #4B5563;
+    --border-value-light: #374151;
     --divider-value: #4B5563;
     
     --hover-value: #374151;
@@ -82,5 +82,24 @@
   --color-error: var(--error-value);
   --color-info: var(--info-value);
 
-  --font-noto-sans-sc: 'Noto Sans SC', sans-serif;
+  --font-rubik-sc: 'Rubik', sans-serif;
+}
+
+
+@layer components {
+  body {
+    font-family: var(--font-rubik-sc);
+  }
+  h1[data-variant="pageTitle"] {
+    @apply text-3xl font-bold;
+    color: var(--color-foreground);
+  }
+  h3[data-variant="cardTitle"] {
+    @apply text-lg font-bold;
+    color: var(--color-foreground);
+  }
+  p[data-variant="caption"] {
+    @apply text-sm text-muted;
+    color: var(--color-muted);
+  }
 }
