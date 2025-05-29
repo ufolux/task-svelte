@@ -24,6 +24,11 @@
     --hover-value: #f3f4f6;
     --active-value: #dbeafe;
     --focus-value: #3b82f6;
+
+    --success-value: #16a34a;
+    --warning-value: #f59e0b;
+    --error-value: #dc2626;
+    --info-value: #2563eb;
   }
 
   /* Dark theme */
@@ -47,6 +52,11 @@
     --hover-value: #374151;
     --active-value: #312e81;
     --focus-value: #60a5fa;
+
+    --success-value: #16a34a;
+    --warning-value: #f59e0b;
+    --error-value: #dc2626;
+    --info-value: #2563eb;
   }
 
   /* 为常用容器元素默认应用flex布局 */
@@ -114,5 +124,12 @@
   }
   p[data-variant='caption'] {
     @apply text-subtle text-sm;
+  }
+  .hide-scrollbar {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari and Opera */
+    }
   }
 }

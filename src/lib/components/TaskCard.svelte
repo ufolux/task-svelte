@@ -4,10 +4,10 @@
   import commenting from 'svelte-awesome/icons/commentingO';
   import ellipsisH from 'svelte-awesome/icons/ellipsisH';
   import flag from 'svelte-awesome/icons/flag';
-  import TaskTag, { type Tag } from './TaskTag.svelte';
-  import Avatar from './Avatar.svelte';
+  import TaskTag, { type Tag } from '$lib/components/TaskTag.svelte';
+  import TaskAvatar, { type Avatar } from '$lib/components/TaskAvatar.svelte';
 
-  interface CardProps {
+  interface Props {
     tags: Tag[];
     title: string;
     desc: string;
@@ -16,10 +16,8 @@
     attachedNum: number;
     commentNum: number;
   }
-  /**
-   * @type CardProps
-   */
-  let { tags, title, desc, dueDate, avatars, attachedNum, commentNum } = $props();
+
+  let { tags, title, desc, dueDate, avatars, attachedNum, commentNum }: Props = $props();
   dueDate = new Date(dueDate).toLocaleDateString('en-US', {
     month: 'short',
     day: 'numeric',
@@ -27,7 +25,7 @@
 </script>
 
 <div
-  class="border-border-light bg-background-light flex flex-col rounded-lg border-1 p-4 shadow-md"
+  class="border-border-light bg-background-light flex flex-col rounded-lg border-1 p-4 shadow-sm"
 >
   <div class="mb-2 flex items-center justify-between">
     <div class="flex gap-1">
@@ -50,7 +48,7 @@
   <div class="mt-2 flex items-center justify-between">
     <div class="flex items-center">
       {#each avatars as avatar, index (avatar.id)}
-        <Avatar {avatar} isLast={index === avatars.length - 1} />
+        <TaskAvatar {avatar} isLast={index === avatars.length - 1} />
       {/each}
     </div>
     <div class="text-icon-secondary flex items-center gap-2 text-sm">

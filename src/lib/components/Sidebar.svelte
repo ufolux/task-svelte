@@ -7,8 +7,8 @@
   import { getTheme, toggleTheme } from '$lib/stores/theme.svelte';
 </script>
 
-<aside class="sidebar border-border flex w-40 flex-col border-r">
-  <div class="sidebar-logo flex h-15 items-center justify-center gap-2 py-8">
+<aside class="sidebar border-border w-60 min-w-40 flex-col items-center border-r">
+  <div class="sidebar-logo flex h-15 justify-center gap-2 py-8">
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="4" y="4" width="32" height="32" rx="8" fill="var(--color-primary)" />
       <rect x="9" y="10" width="5" height="20" rx="2" fill="white" />
@@ -18,8 +18,8 @@
     <span class="prose lg:prose-2xl text-primary">Tasker</span>
   </div>
 
-  <div class="flex h-full flex-col justify-between">
-    <ul class="sidebar-content flex flex-col px-2 py-4">
+  <div class="mt-20 flex h-full flex-col justify-between">
+    <ul class="sidebar-content flex flex-col items-center px-2 py-4">
       <li
         class="sidebar-item hover:bg-color-hover flex items-center gap-2 rounded-md p-2"
         class:bg-color-active={page.url.pathname === '/projects'}

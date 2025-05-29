@@ -3,11 +3,11 @@
     id: string;
     src: string;
   };
-  export interface AvatarProps {
+  interface Props {
     avatar: Avatar;
     isLast?: boolean;
   }
-  let { avatar, isLast }: AvatarProps = $props();
+  let { avatar, isLast }: Props = $props();
 </script>
 
 <img

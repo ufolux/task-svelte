@@ -34,8 +34,8 @@
     </button>
   </div>
 
-  <div class="mt-2 flex flex-1 flex-col gap-2 overflow-y-auto">
-    {#each tasks as task}
+  <div class="hide-scrollbar mt-4 flex flex-1 flex-col gap-2 overflow-y-auto">
+    {#each tasks as task (task.id)}
       <TaskCard {...task} />
     {/each}
   </div>
