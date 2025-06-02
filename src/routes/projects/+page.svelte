@@ -22,7 +22,7 @@
   </div>
 
   <!-- task list -->
-  <div class="bg-background flex-1 gap-8 overflow-y-hidden px-4">
+  <div class="bg-background-light flex-1 gap-8 overflow-y-hidden px-4">
     <TaskList listTitle="BACKLOG" tasks={ListData.backlog} />
     <TaskList listTitle="TO DO" tasks={ListData.todo} />
     <TaskList listTitle="IN PROGRESS" tasks={ListData.inProgress} />

@@ -7,7 +7,7 @@
   import { getTheme, toggleTheme } from '$lib/stores/theme.svelte';
 </script>
 
-<aside class="sidebar border-border w-60 min-w-40 flex-col items-center border-r">
+<aside class="sidebar border-border w-60 min-w-40 flex-col border-r">
   <div class="sidebar-logo flex h-15 justify-center gap-2 py-8">
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
       <rect x="4" y="4" width="32" height="32" rx="8" fill="var(--color-primary)" />
@@ -19,13 +19,22 @@
   </div>
 
   <div class="mt-20 flex h-full flex-col justify-between">
-    <ul class="sidebar-content flex flex-col items-center px-2 py-4">
+    <ul class="sidebar-content flex w-full flex-col px-4 py-4">
       <li
-        class="sidebar-item hover:bg-color-hover flex items-center gap-2 rounded-md p-2"
-        class:bg-color-active={page.url.pathname === '/projects'}
+        class={[
+          'sidebar-item',
+          'flex',
+          'items-center',
+          'gap-2',
+          'p-2',
+          'hover:bg-hover',
+          'rounded-md',
+          page.url.pathname === '/projects' ? 'bg-active text-primary' : 'text-subtle',
+          'hover:cursor-pointer',
+        ]}
       >
         <Icon data={thLarge} />
-        <a href="/projects" class="sidebar-link">Projects</a>
+        <a href="/projects">Projects</a>
       </li>
     </ul>
     <ul class="sidebar-content flex flex-col px-2 py-4">
